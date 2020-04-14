@@ -5,12 +5,13 @@ import java.time.LocalDateTime;
 public class Ingressos{
 	private String nome;
 	private double valor;
-	private LocalDateTime data;
+	private LocalDateTime data_compra;
+	private static final LocalDateTime DATA_EVENTO = LocalDateTime.of(2020,12,25,12,0);
 	
-	public Ingressos(String nome, double valor, int ano, int mes, int dia, int horas, int minutos) {
+	public Ingressos(String nome, double valor) {
 		setNome(nome);
 		setValor(valor);
-		data = LocalDateTime.of(ano, mes, dia, horas, minutos);
+		data_compra = LocalDateTime.now();
 	}
 	
 	public String getNome() {
@@ -26,11 +27,13 @@ public class Ingressos{
 		this.valor = valor;
 	}
 	public LocalDateTime getData() {
-		return data;
+		return data_compra;
 	}
 	public void setData(LocalDateTime data) {
-		this.data = data;
+		this.data_compra = data;
 	}
-	
-	
+
+	public static LocalDateTime getDataEvento() {
+		return DATA_EVENTO;
+	}
 }
