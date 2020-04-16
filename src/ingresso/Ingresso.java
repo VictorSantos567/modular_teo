@@ -3,22 +3,22 @@ package ingresso;
 import java.time.LocalDateTime;
 
 public class Ingresso {
-	private String nome;
+	private String nomeEvento;
 	private double valor;
 	private LocalDateTime data_compra;
 	private static final LocalDateTime DATA_EVENTO = LocalDateTime.of(2020,12,25,12,30);
 	
-	public Ingresso(String nome, double valor) {
-		setNome(nome);
+	public Ingresso(String nomeEvento, double valor) {
+		setnomeEvento(nomeEvento);
 		setValor(valor);
 		data_compra = LocalDateTime.now();
 	}
 	
-	public String getNome() {
-		return nome;
+	public String getnomeEvento() {
+		return nomeEvento;
 	}
-	public void setNome(String nome) {
-		this.nome = nome;
+	public void setnomeEvento(String nomeEvento) {
+		this.nomeEvento = nomeEvento;
 	}
 	public double getValor() {
 		return valor;
@@ -43,7 +43,7 @@ public class Ingresso {
 	}
 	
 	public String imprimirIngresso() {
-		return "Nome: " + getNome() + "\nPreço: R$ " + getValor() + "\nData da Compra: " + toString(data_compra) 
+		return "nomeEvento: " + getnomeEvento() + "\nPreço: R$ " + getValor() + "\nData da Compra: " + toString(data_compra) 
 				+ "\nData do Evento: " + toString(DATA_EVENTO);
 	}
 }
