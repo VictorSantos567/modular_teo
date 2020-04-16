@@ -1,15 +1,15 @@
 package comprador;
-import java.time.LocalDateTime;
 public class Comprador {
 
     private String nomeCompleto;
     private String rg;
-    private LocalDateTime dataNascimento;
     
-	public Comprador(String nomeCompleto, String rg,LocalDateTime dataNascimento) {
+    public Comprador() {
+    	
+    }
+	public Comprador(String nomeCompleto, String rg) {
 		setNomeCompleto(nomeCompleto);
 		setRg(rg);
-        setDataNascimento(dataNascimento);
     }
     
 	public void setNomeCompleto(String nomeCompleto) {
@@ -20,9 +20,6 @@ public class Comprador {
 	    this.rg = rg;
     }
 
-    public void setDataNascimento(LocalDateTime dataNascimento) {
-	    this.dataNascimento = dataNascimento;
-    }
 
     public String getNomeCompleto() {
 		return nomeCompleto;
@@ -32,16 +29,10 @@ public class Comprador {
 		return rg;
     }
 
-    public LocalDateTime getDataNascimento() {
-		return dataNascimento;
-    }
+
 
     public String imprimirComprador() {
-		return "nomeCompleto: " + getNomeCompleto() + "\n Rg: " + getRg() + "\n Data de Nascimento: " + toString(getDataNascimento());
+		return "Nome Completo: " + getNomeCompleto() + "\nRg: " + getRg();
     }
     
-    public String toString(LocalDateTime data) {
-		return data.getDayOfMonth() + "/" + data.getMonthValue() + "/" + data.getYear() 
-		+ " - " + data.getHour() + ":" + data.getMinute() + " hs";
-	}
 }
