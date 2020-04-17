@@ -28,10 +28,17 @@ public class Main {
             
             case 3: imprimirIngresso();
             break;
-                
+            
+            case 4:
+            	System.out.println(novoEvento.imprimirIngresso());
+            break;
             
             default:
-                System.out.println("Opção inválida.");
+                if (opcao != 0) {
+                	System.out.println("OpÃ§Ã£o invÃ¡lida.");	
+                }else {
+                	System.out.println("Programa finalizado.");
+                }
             }
         } while(opcao != 0);
         
@@ -39,30 +46,33 @@ public class Main {
     }
 	
     public static void menu(){
-        System.out.println("\n ------- Menu de funcionalidades -------");
-        System.out.println("1- Criar evento.");
-        System.out.println("2- Compra Ingresso.");
-        System.out.println("3- Imprimir Ingresso.");
-        System.out.println("0- Sair.");
-        System.out.println("Opcao:");
+    	System.out.println("");
+    	System.out.println("  |-------- Menu de funcionalidades -------|");
+        System.out.println("  | 1- Criar evento.                       |");
+        System.out.println("  | 2- Compra Ingresso.                    |");
+        System.out.println("  | 3- Imprimir Ingresso.                  |");
+        System.out.println("  | 4- Imprimir eventos.                   |");
+        System.out.println("  | 0- Sair.                               |");
+        System.out.println("  |----------------------------------------|");
+        System.out.print("Opcao:");
     }
     
     public static void cadastrarEvento(){
     	entrada.nextLine();
-        System.out.println("Você entrou no método Cadastrar Evento.");
+        System.out.println("VocÃª entrou no mÃ©todo Cadastrar Evento.");
         System.out.println("Entre com o nome do evento:");
         novoEvento.setnomeEvento(entrada.nextLine());
         System.out.println("Entre com o valor do evento:");
         novoEvento.setValor(entrada.nextFloat());
-        
+    
         System.out.println("Evento criado com sucesso! Nome:" + novoEvento.getnomeEvento() + " Valor: "+ novoEvento.getValor());
         
     }
     
     public static void comprarIngresso(){
     	entrada.nextLine();
-        System.out.println("Você entrou no método Comprar Ingresso.");
-        System.out.println("Você deseja comprar ingresso para o evento: "+ novoEvento.getnomeEvento() + " no Valor: "+ novoEvento.getValor());
+        System.out.println("VocÃª entrou no mÃ©todo Comprar Ingresso.");
+        System.out.println("VocÃª deseja comprar ingresso para o evento: "+ novoEvento.getnomeEvento() + " no Valor: "+ novoEvento.getValor());
         System.out.println("Se SIM digite 1, se NAO dige 2.");
         int opc = entrada.nextInt();
         if (opc == 2) {
@@ -83,12 +93,14 @@ public class Main {
     }
     
     public static void imprimirIngresso(){
+    	if(comprador.getRg() != null) {
+    		System.out.println(novoEvento.imprimirIngresso());
+        	System.out.println(comprador.imprimirComprador());
+    	}
+    	else
+    	{
+    		System.out.println("Nenhum ingresso foi comprado");
+    	}
     	
-    	System.out.println(novoEvento.imprimirIngresso());
-    	System.out.println(comprador.imprimirComprador());
-
     }
-  
-    
-   
 }

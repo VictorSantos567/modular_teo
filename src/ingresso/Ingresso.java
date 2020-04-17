@@ -10,8 +10,6 @@ public class Ingresso {
 	
 	
 	public Ingresso() {
-		data_compra = LocalDateTime.now();
-		
 	}
 
 	public String getnomeEvento() {
@@ -40,6 +38,12 @@ public class Ingresso {
 	}
 	
 	public String imprimirIngresso() {
-		return "\nEvento: " + getnomeEvento() + "\nPreco: R$ " + getValor() + "\nData da Compra: " + toString(data_compra);
+		if (getData() != null) {
+			return "\nEvento: " + getnomeEvento() + "\nPreco: R$ " + getValor() + "\nData da Compra: " +  toString(data_compra);	
+		}
+		else {
+			return "\nEvento: " + getnomeEvento() + "\nPreco: R$ " + getValor();
+		}
+		
 	}
 }
